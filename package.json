@@ -1,0 +1,29 @@
+{
+  "name": "binary-decimal-converter",
+  "version": "1.0.0",
+  "description": "Binary decimal converter",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --watch",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Centigrams/binary-decimal-converter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Centigrams/binary-decimal-converter/issues"
+  },
+  "homepage": "https://github.com/Centigrams/binary-decimal-converter#readme",
+  "devDependencies": {
+    "css-loader": "^6.4.0",
+    "html-webpack-plugin": "^5.4.0",
+    "style-loader": "^3.3.0",
+    "webpack": "^5.59.1",
+    "webpack-cli": "^4.9.1"
+  }
+}
