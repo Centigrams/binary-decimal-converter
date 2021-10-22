@@ -1,33 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Binary converter</title>
 <script defer src="main.js"></script></head>
+
 <body>
-    <header>
-        <h1>Binary to Decimal Converter</h1>
-    </header>
+    <div id='app'>
+        <header>
+            <h1>Binary to Decimal Converter</h1>
+        </header>
+        <main>
+            <form id="conversion-form" name="conversion-form">
 
-    <main>
-        <form id='conversion-container' autocomplete="off">
-            <label for="binary">Binary</label>
-            <input type="number" id="binary">
+                <div id="form-select-field-container" class="form-container">
+                    <div id="from-container" class="select-container">
+                        <label for="from-select">From</label>
+                        <select id="from-select">
+                            <option selected>Binary</option>
+                            <option>Decimal</option>
+                        </select>
+                    </div>
 
-            <label for="decimal">Decimal</label>
-            <input type="number" id="decimal"> 
+                    <div id="to-container" class="select-container">
+                        <div id="to-container">
+                            <label for="to-select">To</label>
+                            <select id="to-select">
+                                <option>Binary</option>
+                                <option selected>Decimal</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
 
-            <button id="convert-button" type="button">Convert</button>
-        </form>
-    </main>
+                <div class="form-container" id="number-input-field-container">
+                    <label for="number-input-field">Enter Binary</label>
+                    <input id="number-input-field" type="number">
+                </div>
 
-    <footer>
-        <p>Created by Centigrams</p>
-    </footer>
+                <div class="form-container" id="action-buttons-container">
+                    <button type="button" class="action-buttons" id="convert-button">Convert</button>
+                    <button type="button" class="action-buttons secondary-action-button"
+                        id="reset-button">Clear</button>
+                    <button type="button" class="action-buttons secondary-action-button" id="swap-button">Swap</button>
+                </div>
 
+                <div class="form-container" id="output-container">
+                    <p id="output-type">Decimal Number</p>
+                    <textarea id="output-field" readonly>
 
+                    </textarea>
+                </div>
+            </form>
+        </main>
+        <footer>
+            <p>Created by <a href="https://github.com/Centigrams/binary-decimal-converter">Centigrams</a></p>
+        </footer>
+    </div>
     <script src="/scripts/index.js"></script>
 </body>
+
 </html>
