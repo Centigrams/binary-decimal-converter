@@ -5,44 +5,113 @@
 }
 
 :root {
-    --header-color: yellow;
+    --header-color: rgb(53, 102, 235);
     --header-height: 3rem;
     --border-bottom-color: red;
     --footer-text-color: black;
 }
 
-body {
-    height: 100%;
-    display: flex;
+#app {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 
+    'header'
+    'main'
+    'footer';
 }
 
-header {
-    background-color: var(--header-color);
-    box-shadow: black;
+#app > header {
+    grid-area: header;
+    height: 3rem;
     top: 0;
     left: 0;
-    display: flex;
+    display: grid;
     align-items: center;
-    padding-left: 1rem;
-    height: var(--header-height);
-    position: fixed;
-    width: 100%;
+    margin-left: 1rem;
 }
 
-main {
-    margin-top: var(--header-height);
+#app > main {
+    grid-area: main;
+    padding: 15px 5px 10px 5px;
+    background-color: gray;
 }
 
-footer {
-    left: 0;
-    bottom: 0;
-    position: fixed;
-    background-color: var(--header-color);
-    width: 100%;
-    height: 2.5rem;
-    font-size: 1.3rem;
+#app > footer {
+    grid-area: footer;
+    height: 2rem;
     display: flex;
-    align-items: center;
     justify-content: center;
-    color: var(--footer-text-color);
+    align-items: center;
+}
+
+form {
+    padding: 1rem;
+}
+
+form > #form-select-field-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+form .form-container {
+    background-color: ghostwhite;
+    margin: 0 auto;
+    width: 35rem;
+    padding: 1.5rem;
+}
+
+#form-select-field-container .select-container {
+    width: 15.5rem;
+}
+
+#form-select-field-container > #to-container {
+    margin-left: 1rem;
+}
+
+.select-container label {
+    font-size: 1.5rem;
+}
+
+.select-container select {
+    display: block;
+    padding: 0.5rem;
+    width: 100%;
+    font-size: 1rem;
+}
+
+#number-input-field-container {
+    justify-content: flex-start;
+}
+
+#number-input-field-container label {
+    font-size: 1.rem;
+}
+
+#number-input-field-container input {
+    display: block;
+    padding: 0.5rem;
+    width: 100%;
+    font-size: 1rem;
+}
+
+#action-buttons-container .action-buttons {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    border: none;
+}
+
+#action-buttons-container #convert-button {
+    background-color: lightgreen;
+}
+
+#action-buttons-container .secondary-action-button {
+    background-color: whitesmoke;
+}
+
+#output-container #output-field {
+    width: 100%;
+    font-size: 1rem;
 }
