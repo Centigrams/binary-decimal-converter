@@ -19,18 +19,18 @@
                 <div id="form-select-field-container" class="form-container">
                     <div id="from-container" class="select-container">
                         <label for="from-select">From</label>
-                        <select id="from-select">
-                            <option selected>Binary</option>
-                            <option>Decimal</option>
+                        <select id="from-select" data-from>
+                            <option value="binary" selected>Binary</option>
+                            <option value="decimal">Decimal</option>
                         </select>
                     </div>
 
                     <div id="to-container" class="select-container">
                         <div id="to-container">
                             <label for="to-select">To</label>
-                            <select id="to-select">
-                                <option>Binary</option>
-                                <option selected>Decimal</option>
+                            <select id="to-select" data-to>
+                                <option value="binary">Binary</option>
+                                <option value="decimal" selected>Decimal</option>
                             </select>
                         </div>
                     </div>
@@ -38,7 +38,7 @@
 
                 <div class="form-container" id="number-input-field-container">
                     <label for="number-input-field">Enter Binary</label>
-                    <input id="number-input-field" type="number">
+                    <input id="number-input-field" type="number" data-number-input-field>
                 </div>
 
                 <div class="form-container" id="action-buttons-container">
