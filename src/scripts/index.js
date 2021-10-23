@@ -11,33 +11,80 @@ class Converter {
 }
 
 const form = (function() {
-    const fromSelect = document.querySelector('[data-from]');
-    const toSelect = document.querySelector('[data-to]');
-    const numberInputField = document.querySelector('[data-number-input-field]')
-    const convertButton = document.querySelector('#convert-button');
-    const clearButton = document.querySelector('#reset-button');
-    const swapButton = document.querySelector('#swap-button');
-    const outputField = document.querySelector('output-field');
+  const fromSelect = document.querySelector('[data-from]');
+  const toSelect = document.querySelector('[data-to]');
+  const numberInputFieldLabel = document.querySelector('[data-number-input-label]');
+  const numberInputField = document.querySelector('[data-number-input-field]');
+  const outputFieldLabel = document.querySelector('[data-output-type-label]');
+  const outputField = document.querySelector('[data-output-field]');
 
-    /**
-     * Get selected choices
-     * Check if selected choices are same
-     * Check if selected choice are not same
-     * If the selected choices are not the same continue
-     * 
-     * If selected choice is binary to decimal
-     * Check if input field only contains 0 and 1
-     * If input fields contain other characters, return
-     * Else convert
-     * 
-     * If selected chocie is decimal to binary
-     * 
-     */
+  let conversionMode = 'binaryToDecimal';
 
-    return {
+  const changeLabelsInForm = () => {
+    numberInputFieldLabel.textContent = `Enter ${fromSelect.value}`;
+    outputFieldLabel.textContent = `${toSelect.value} Number`
+  };
 
-    };
+  const setConversionMode = () => {
+    if (fromSelect.value === 'Binary' && toSelect.value === 'Decimal') {
+      conversionMode = 'binaryToDecimal';
+    } else if (fromSelect.value === 'Decimal' && toSelect.value === 'Binary') {
+      conversionMode = 'decimalToBinary'
+    }
+  };
+  
+  const getSelectedChoices = () => {
+    if (fromSelect.value === toSelect.value) {
+      return;
+    } else {
+      changeLabelsInForm();
+      setConversionMode();
+    }
+  };
+
+  const convertInput = () => {
+    const number = parseInt(numberInputField.value);
+    let output;
+
+    if (conversionMode === 'binaryToDecimal') {
+      //Check if the input will pass.
+      output = Converter.convertBinarytToDecimal(number);
+      outputField.textContent = output;
+    } else if (conversionMode === 'decimalToBinary') {
+      output = Converter.convertDecimalToBinary(number);
+      outputField.textContent = output;
+    }
+  };
+
+  const swapConversion = () => {
+    if (conversionMode === 'binaryToDecimal') {
+      conversionMode = 'decimalToBinary';
+      fromSelect.value = 'Decimal';
+      toSelect.value = 'Binary';
+      changeLabelsInForm();
+    } else if (conversionMode === 'decimalToBinary') {
+      conversionMode = 'binaryToDecimal';
+      fromSelect.value = 'Binary';
+      toSelect.value = 'Decimal';
+      changeLabelsInForm();
+    }
+  };
+
+  const resetInputAndOutputFields = () => {
+    outputField.textContent = '';
+    numberInputField.value = '';
+  };
+
+  return {
+    getSelectedChoices,
+    convertInput,
+    resetInputAndOutputFields,
+    swapConversion,
+  };
 }());
-// document.getElementById('convert-button').addEventListener('click', convertInput);
-// document.getElementById('reset-button').addEventListener('click', resetInputField);
-// document.getElementById('swap-button').addEventListener('click', swapConversion);
+document.getElementById('convert-button').addEventListener('click', form.convertInput);
+document.getElementById('reset-button').addEventListener('click', form.resetInputAndOutputFields);
+document.getElementById('swap-button').addEventListener('click', form.swapConversion);
+document.getElementById('from-select').addEventListener('click', form.getSelectedChoices);
+document.getElementById('to-select').addEventListener('click', form.getSelectedChoices);
+form.getSelectedChoices();
