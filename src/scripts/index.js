@@ -2,7 +2,12 @@ import '/src/style.css'
 
 class Converter {
   static convertBinarytToDecimal(binary) {
-    return parseInt(binary, 2);
+    let number = parseInt(binary, 2);
+    if (isNaN(number)) {
+      return 'You need to input binary digits!';
+    } else {
+      return number;
+    }
   };
 
   static convertDecimalToBinary(decimal) {
@@ -45,9 +50,7 @@ const form = (function() {
   const convertInput = () => {
     const number = parseInt(numberInputField.value);
     let output;
-
     if (conversionMode === 'binaryToDecimal') {
-      //Check if the input will pass.
       output = Converter.convertBinarytToDecimal(number);
       outputField.textContent = output;
     } else if (conversionMode === 'decimalToBinary') {
