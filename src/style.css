@@ -5,10 +5,14 @@
 }
 
 :root {
-    --header-color: rgb(53, 102, 235);
     --header-height: 3rem;
-    --border-bottom-color: red;
-    --footer-text-color: black;
+    --header-background: #eae7dc;
+    --form-background: #eae7dc;
+    --main-background: #8e8d8a;
+    --footer-background: #eae7dc; 
+    --header-text-color: black;
+    --convert-button: #52db79;
+    --secondary-action-button: #8e8d8a;
 }
 
 #app {
@@ -29,13 +33,18 @@
     left: 0;
     display: grid;
     align-items: center;
+    background-color: var(--header-background);
+}
+
+#app > header > h1 {
     margin-left: 1rem;
+    color: var(--header-text-color);
 }
 
 #app > main {
     grid-area: main;
     padding: 15px 5px 10px 5px;
-    background-color: gray;
+    background-color: var(--main-background);
 }
 
 #app > footer {
@@ -44,6 +53,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: var(--footer-background);
 }
 
 form {
@@ -56,7 +66,7 @@ form > #form-select-field-container {
 }
 
 form .form-container {
-    background-color: ghostwhite;
+    background-color: var(--form-background);
     margin: 0 auto;
     width: 35rem;
     padding: 1.5rem;
@@ -104,11 +114,11 @@ form .form-container {
 }
 
 #action-buttons-container #convert-button {
-    background-color: lightgreen;
+    background-color: var(--convert-button);
 }
 
 #action-buttons-container .secondary-action-button {
-    background-color: whitesmoke;
+    background-color: var(--secondary-action-button);
 }
 
 #output-container #output-field {
