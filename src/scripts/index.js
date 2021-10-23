@@ -30,21 +30,41 @@ const form = (function() {
     outputFieldLabel.textContent = `${toSelect.value} Number`
   };
 
+  const setValuesForBinaryToDecimal = () => {
+    fromSelect.value = 'Binary';
+    toSelect.value = 'Decimal';
+  };
+
+  const setValuesForDecimalToBinary = () => {
+    fromSelect.value = 'Decimal';
+    toSelect.value = 'Binary';
+  };
+
+  const swapConversion = () => {
+    if (conversionMode === 'binaryToDecimal') {
+      conversionMode = 'decimalToBinary';
+      setValuesForDecimalToBinary();
+      changeLabelsInForm();
+    } else if (conversionMode === 'decimalToBinary') {
+      conversionMode = 'binaryToDecimal';
+      setValuesForBinaryToDecimal();
+      changeLabelsInForm();
+    }
+  };
+
   const setConversionMode = () => {
-    if (fromSelect.value === 'Binary' && toSelect.value === 'Decimal') {
+    if (fromSelect.value === toSelect.value) {
+      swapConversion();
+    } else if (fromSelect.value === 'Binary' && toSelect.value === 'Decimal') {
       conversionMode = 'binaryToDecimal';
     } else if (fromSelect.value === 'Decimal' && toSelect.value === 'Binary') {
-      conversionMode = 'decimalToBinary'
+      conversionMode = 'decimalToBinary';
     }
   };
   
   const getSelectedChoices = () => {
-    if (fromSelect.value === toSelect.value) {
-      return;
-    } else {
-      changeLabelsInForm();
-      setConversionMode();
-    }
+    setConversionMode();
+    changeLabelsInForm();
   };
 
   const convertInput = () => {
@@ -56,20 +76,6 @@ const form = (function() {
     } else if (conversionMode === 'decimalToBinary') {
       output = Converter.convertDecimalToBinary(number);
       outputField.textContent = output;
-    }
-  };
-
-  const swapConversion = () => {
-    if (conversionMode === 'binaryToDecimal') {
-      conversionMode = 'decimalToBinary';
-      fromSelect.value = 'Decimal';
-      toSelect.value = 'Binary';
-      changeLabelsInForm();
-    } else if (conversionMode === 'decimalToBinary') {
-      conversionMode = 'binaryToDecimal';
-      fromSelect.value = 'Binary';
-      toSelect.value = 'Decimal';
-      changeLabelsInForm();
     }
   };
 
