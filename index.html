@@ -20,8 +20,8 @@
                     <div id="from-container" class="select-container">
                         <label for="from-select">From</label>
                         <select id="from-select" data-from>
-                            <option value="binary" selected>Binary</option>
-                            <option value="decimal">Decimal</option>
+                            <option value="Binary" selected>Binary</option>
+                            <option value="Decimal">Decimal</option>
                         </select>
                     </div>
 
@@ -29,28 +29,30 @@
                         <div id="to-container">
                             <label for="to-select">To</label>
                             <select id="to-select" data-to>
-                                <option value="binary">Binary</option>
-                                <option value="decimal" selected>Decimal</option>
+                                <option value="Binary">Binary</option>
+                                <option value="Decimal" selected>Decimal</option>
                             </select>
                         </div>
                     </div>
                 </div>
 
                 <div class="form-container" id="number-input-field-container">
-                    <label for="number-input-field">Enter Binary</label>
+                    <label for="number-input-field" data-number-input-label>Enter Binary</label>
                     <input id="number-input-field" type="number" data-number-input-field>
                 </div>
 
                 <div class="form-container" id="action-buttons-container">
-                    <button type="button" class="action-buttons" id="convert-button">Convert</button>
-                    <button type="button" class="action-buttons secondary-action-button"
-                        id="reset-button">Reset</button>
-                    <button type="button" class="action-buttons secondary-action-button" id="swap-button">Swap</button>
+                    <button type="button" class="action-buttons" id="convert-button"
+                        data-convert-button>Convert</button>
+                    <button type="button" class="action-buttons secondary-action-button" id="reset-button"
+                        data-reset-button>Reset</button>
+                    <button type="button" class="action-buttons secondary-action-button" id="swap-button"
+                        data-swap-button>Swap</button>
                 </div>
 
                 <div class="form-container" id="output-container">
-                    <p id="output-type">Decimal Number</p>
-                    <textarea id="output-field" readonly>
+                    <p id="output-type" data-output-type-label>Decimal Number</p>
+                    <textarea id="output-field" readonly data-output-field>
 
                     </textarea>
                 </div>
