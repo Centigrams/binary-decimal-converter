@@ -3,6 +3,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: './src/scripts/index.js',
+    mode: 'development',
+    devtool: 'inline-source-map',
     output: {
         filename: 'main.js',
         path: path.resolve(__dirname, 'dist'),
@@ -27,7 +29,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: 'Binary converter',
             filename: 'index.html',
-            template: './src/index.html',
+            template: './src/index.html'
         }),
     ],
 }
